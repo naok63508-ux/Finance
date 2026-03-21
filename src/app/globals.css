@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-card: var(--card);
+  --color-card-border: var(--card-border);
+  --font-sans: "Outfit", "Inter", sans-serif;
+  
+  /* Imagem 1 Zarss Colors */
+  --color-z-green: #cadfb9;
+  --color-z-green-dark: #3a5c37;
+  --color-z-yellow: #f5dd92;
+  --color-z-yellow-dark: #665011;
+  --color-z-purple: #aba5f8;
+  --color-z-purple-dark: #ffffff;
+  --color-z-accent: #e8c872;
+}
+
+:root {
+  /* Warm beige background from Image 1 */
+  --background: #f4f3ec;
+  --foreground: #2d2d2d;
+  
+  /* Dark sidebar */
+  --sidebar: #222222;
+  --sidebar-foreground: #a0a0a0;
+  
+  /* White cards */
+  --card: #ffffff;
+  --card-border: #eaeaea;
+}
+
+.dark {
+  --background: #121212;
+  --foreground: #f4f3ec;
+  --sidebar: #181818;
+  --sidebar-foreground: #888888;
+  --card: #1f1f1f;
+  --card-border: #333333;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.recharts-wrapper {
+  outline: none !important;
+}

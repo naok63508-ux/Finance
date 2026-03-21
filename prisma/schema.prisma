@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String        @id @default(cuid())
+  name          String?
+  email         String        @unique
+  image         String?
+  password      String?       // Adicionado para login com email/senha
+  transactions  Transaction[]
+  goals         Goal[]
+  createdAt     DateTime      @default(now())
+}
+
+model Transaction {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  amount      Float
+  type        String   // "income" | "expense"
+  category    String
+  description String
+  notes       String?
+  date        DateTime
+  aiSuggested Boolean  @default(false)
+  createdAt   DateTime @default(now())
+}
+
+model Goal {
+  id          String @id @default(cuid())
+  userId      String
+  user        User   @relation(fields: [userId], references: [id])
+  category    String
+  limitAmount Float
+  month       Int
+  year        Int
+  @@unique([userId, category, month, year])
+}
