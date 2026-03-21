@@ -30,7 +30,7 @@ export function CategoryDonutChart({ data }: { data: { name: string, value: numb
           ))}
         </Pie>
         <Tooltip 
-          formatter={(value: number) => [`R$ ${value.toLocaleString('pt-BR', {minimumFractionDigits:2})}`, '']} 
+          formatter={(value: any) => [`R$ ${Number(value).toLocaleString('pt-BR', {minimumFractionDigits:2})}`, '']} 
           contentStyle={{ 
             borderRadius: '16px', 
             border: '1px solid rgba(255,255,255,0.05)', 

@@ -25,7 +25,7 @@ export function BalanceLineChart({ data }: { data: { month: string, balance: num
           domain={['dataMin - 1000', 'dataMax + 1000']}
         />
         <Tooltip 
-          formatter={(value: number) => [`R$ ${value.toLocaleString('pt-BR', {minimumFractionDigits: 2})}`, 'Saldo']} 
+          formatter={(value: any) => [`R$ ${Number(value).toLocaleString('pt-BR', {minimumFractionDigits: 2})}`, 'Saldo']} 
           contentStyle={{ 
             borderRadius: '16px', 
             border: '1px solid rgba(255,255,255,0.1)', 
